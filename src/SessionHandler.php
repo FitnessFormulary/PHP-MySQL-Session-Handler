@@ -103,7 +103,7 @@ final class SessionHandler implements \SessionHandlerInterface
 
     public function gc($maxlifetime)
     {
-        $furthestValidTime = time() - intval(maxlifetime);
+        $furthestValidTime = time() - intval($maxlifetime);
         $sql = "DELETE FROM 
                     {$this->dbTable} 
                 WHERE modified_timestamp < :furthestValidTime";
