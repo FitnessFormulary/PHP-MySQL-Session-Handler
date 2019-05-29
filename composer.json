@@ -1,9 +1,9 @@
 {
-    "name": "programster/mysql-session-handler",
+    "name": "fitnessformulary/mysql-session-handler",
     "type": "library",
     "description": "MySQL PHP Session Handler",
-    "keywords": ["php", "mysql", "sessions"],
-    "homepage": "https://github.com/programster/PHP-MySQL-Session-Handler",
+    "keywords": ["php", "mysql", "sessions", "PDO"],
+    "homepage": "https://github.com/fitnessformulary/PHP-MySQL-Session-Handler",
     "license": "MIT",
     "authors": [
     {
@@ -15,6 +15,11 @@
         "name": "Stuart Page (aka Programster)",
         "email": "sdpagent@gmail.com",
         "homepage": "https://github.com/programster"
+    },
+    {
+        "name": "Rami Azzazi (aka ramiazzazi",
+        "email": "rami.azzazi@me.com",
+        "homepage": "https://github.com/ramiazzazi"
     }
     ],
     "require": {
@@ -22,7 +27,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Programster\\SessionHandler\\": "src/"
+            "FitnessFormulary\\SessionHandler\\": "src/"
         }
     }
 }
