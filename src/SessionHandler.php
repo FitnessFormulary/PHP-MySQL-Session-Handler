@@ -1,16 +1,17 @@
 <?php
-/** This is a fork from Programster's implementation of PHP's SessionHandler implementing the abstract SessionHandler
+/** Author: Rami Azzazi, @ramiazzazi on github.
+ * This is a fork from Programster's implementation of PHP's SessionHandler implementing the abstract SessionHandler
  *  extending the SessionHandlerInterface
- * This is modifed for PHP DATA OBJECTS (PDO) abstraction layer for accessing databases by Rami Azzazi @ramiazzazi
+ * The fork modifies the class to utilize PHP DATA OBJECTS (PDO) abstraction layer for accessing databases rather than mysqli
  **/
 
-namespace Programster\SessionHandler;
+namespace FitnessFormulary\SessionHandler;
 use PDO;
 
 final class SessionHandler implements \SessionHandlerInterface
 {
-    private $dbConnection; # the mysqli connection
-    private $dbTable; # name of the db table to store sessions in
+    private $dbConnection;
+    private $dbTable;
     private $m_maxAge;
 
 
@@ -47,7 +48,7 @@ final class SessionHandler implements \SessionHandlerInterface
              WHERE `modified_timestamp` < (NOW() - INTERVAL :m_maxAge SECOND)";
         $stmt = $this->dbConnection->prepare($sql);
 
-        return $stmt->execute([':m_maxAge' => $this->$m_maxAge]);
+        return $stmt->execute([':m_maxAge' => $this->m_maxAge]);
 
     }
 
@@ -107,7 +108,7 @@ final class SessionHandler implements \SessionHandlerInterface
                     {$this->dbTable} 
                 WHERE modified_timestamp < :furthestValidTime";
         $stmt = $this->dbConnection->prepare($sql);
-        return $stmt-->execute([':furthestValidTime' => $furthestValidTime]);
+        return $stmt->execute([':furthestValidTime' => $furthestValidTime]);
     }
 }
 
